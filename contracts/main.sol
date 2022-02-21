@@ -17,7 +17,8 @@ contract main{
         require(sent, "Failed to transfer Ether");
         token.transfer(to, amt);
     }
-
+    
+    //Assuming tokens are transffered to the contract intially
     function purchase() public payable { //tokens to be mentioned in decimals of 10 power 18(Wei format)
         uint256 supply = token.totalSupply();
         uint256 totalAvailable = token.balanceOf(address(this)) ; 
