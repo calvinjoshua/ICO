@@ -36,7 +36,7 @@ contract main{
         _validate(totalAvailable,msg.sender, weiAmount);
 
         if(totalAvailable > phaseOneLimit){
-            _validate2(weiAmount, phaseOnePrice);
+            _validate2(weiAmount, phaseOnePrice);//to check if user has enough msg.value to get minimum tokens
             tokens = weiAmount/ phaseOnePrice;
             transfer(payable(msg.sender), tokens, weiAmount);
         }
@@ -65,7 +65,7 @@ contract main{
     }
 
     function _validate2(uint256 amt, uint256 price) internal pure {
-        require(amt > price, "No enough amount");
+        require(amt > price, "No enough amount"); //if the msg.value less the phaseOne price, then reverted
     }
     
 }
